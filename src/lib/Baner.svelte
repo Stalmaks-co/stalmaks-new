@@ -1,14 +1,9 @@
-<script>
+<script lang="ts">
 	import Fa from 'svelte-fa';
 	import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
 	import { onMount } from 'svelte';
-
-	const handleButtonClick = () => {
-		goto('/#services');
-	};
 
 	let visible = false;
 
@@ -18,6 +13,12 @@
 				visible = true;
 			}, 0);
 		});
+	});
+
+	let servicesSection: HTMLElement | null = null;
+
+	onMount(() => {
+		servicesSection = document.querySelector('#services');
 	});
 </script>
 
@@ -48,7 +49,11 @@
 					Hale, konstrukcje stalowe, schody, utrzymanie ruchu, przejścia technologiczne
 				</p>
 				<button
-					onclick={handleButtonClick}
+					on:click={() => {
+						if (servicesSection) {
+							servicesSection.scrollIntoView({ behavior: 'smooth' });
+						}
+					}}
 					in:fly={{ y: 60, duration: 500, delay: 600, opacity: 0 }}
 					class="mt-6 flex flex-row items-center justify-center rounded-lg bg-accent px-4 py-2 text-xs text-white transition-colors duration-200 hover:bg-red-700 focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:outline-none sm:px-6 sm:py-3 sm:text-sm md:text-base lg:text-lg"
 				>

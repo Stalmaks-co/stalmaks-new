@@ -15,9 +15,13 @@
     font-family: var(--font-exo);
     color: var(--color-text, #333);
     background-color: var(--color-background, #fff);
-    scroll-behavior: smooth;
+    /* scroll-behavior: smooth; */
     overscroll-behavior: none;
   }
+
+    body {
+        @apply antialiased scroll-smooth;
+    }
 
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
