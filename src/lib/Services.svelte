@@ -10,7 +10,7 @@
 	// import Modal from './Modal.svelte';
 
 	const handleClickSteel = () => {
-		window.location.href = 'https://stalmaks.pl';
+		window.location.href = 'https://dzwigbarlinek.pl/';
 	};
 
 	let modal = {
